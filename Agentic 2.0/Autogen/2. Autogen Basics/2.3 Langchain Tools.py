@@ -39,13 +39,14 @@ search_agent = AssistantAgent(
     tools=[search_web],
     description="An agent that can search the web for information.",
     system_message="You are a helpful assistant that can search the web for information using the search_web tool." \
-    "Please make sure that you use the search_web tool to find information before you return the answer.",
+    "Please make sure that you use the search_web tool to find information before you return the answer." \
+    "don't send the year in query, rather use latest or recently etc.",
     reflect_on_tool_use=True,
 )
 
 async def run_serper_search():
     """Run the search agent with a sample query."""
-    query = "Who won the IPL ?" 
+    query = "Who won the IPL recently ?" 
     print(f"Querying: {query}")
     
     
