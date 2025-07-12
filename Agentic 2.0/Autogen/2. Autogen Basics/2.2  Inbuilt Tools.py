@@ -40,8 +40,6 @@ schema = {
     }
 
 
-
-
 http_tool = HttpTool(
     name="cat_facts_api",
     description="get a cool cat fact",
