@@ -45,7 +45,7 @@ search_agent = AssistantAgent(
 
 async def run_serper_search():
     """Run the search agent with a sample query."""
-    query = "Who won the IPL in 2025 ?" 
+    query = "Who won the IPL ?" 
     print(f"Querying: {query}")
     
     
