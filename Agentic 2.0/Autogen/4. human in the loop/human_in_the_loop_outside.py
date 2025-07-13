@@ -37,7 +37,6 @@ assistant3 = AssistantAgent(
 )
 
 
-
 team = RoundRobinGroupChat(
     participants=[assistant, assistant2, assistant3],
     max_turns=1
