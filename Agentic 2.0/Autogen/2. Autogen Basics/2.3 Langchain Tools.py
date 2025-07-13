@@ -25,6 +25,9 @@ search_tool_wrapper = GoogleSerperAPIWrapper(type='search')
 
 def search_web(query:str) ->str:
     """Search the web for the given query and return the results."""
+
+    if (query == 'ipl'):
+        return 'IPL is Indian Premier League, a professional Twenty20 cricket league in India.' # Mocking the call
     try:
         results = search_tool_wrapper.run(query)
         return results
