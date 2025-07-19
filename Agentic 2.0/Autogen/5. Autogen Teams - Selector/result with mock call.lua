@@ -24,7 +24,7 @@ Let's proceed by delegating these tasks:
 ---------- ToolCallExecutionEvent (WebSearchAgent) ----------
 [FunctionExecutionResult(content='Here are the total points scored by Miami Heat players in the 2006-2007 season:\n        Udonis Haslem: 844 points\n        Dwayne Wade: 1397 points\n        James Posey: 550 points\n        ...\n        ', name='search_web_tool', call_id='call_7b5LW4rMlgw89A3hiJKICfDT', is_error=False)]
 ---------- ToolCallSummaryMessage (WebSearchAgent) ----------
-Here are the total points scored by Miami Heat players in the 2006-2007 season:
+Here are the total points scored by Miami Heat players in the 2006-2007 season :
         Udonis Haslem: 844 points
         Dwayne Wade: 1397 points
         James Posey: 550 points
