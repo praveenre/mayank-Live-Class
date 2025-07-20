@@ -7,7 +7,7 @@ from autogen_core import CancellationToken
 async def main():
 
     docker = DockerCommandLineCodeExecutor(
-        work_dir='/tmp',
+        work_dir='tmp',
         timeout=120
     )
 
@@ -18,8 +18,10 @@ async def main():
 
     task = TextMessage(
         content='''Here is the code 
+
 ```python
-print("Hello, World, how are you ?!")
+import matplotlib
+print("hello world")
 ```
     ''',
     source='user'
