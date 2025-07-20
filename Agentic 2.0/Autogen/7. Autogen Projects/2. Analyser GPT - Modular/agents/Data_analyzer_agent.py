@@ -2,7 +2,7 @@ from autogen_agentchat.agents import AssistantAgent
 
 from prompts.data_analyzer_message import DATA_ANALYZER_SYSTEM_MESSAGE
 
-def getDataAnalyzerAgent(model_client):
+def getDataAnalyzerTeam(model_client):
     data_analyzer_agent = AssistantAgent(
         name='Data_Analyzer_agent',
         model_client=model_client,
