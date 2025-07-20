@@ -1,12 +1,12 @@
 
 from autogen_agentchat.teams import RoundRobinGroupChat
 from autogen_agentchat.conditions import TextMentionTermination
-from agents.Code_executor_agent import CodeExecutorAgent
+from agents.Code_executor_agent import getCodeExecutorAgent
 from agents.Data_analyzer_agent import getDataAnalyzerAgent
 
 def getDataAnalyzerTeam(docker,model_client):
 
-    code_executor_agent = CodeExecutorAgent(docker)
+    code_executor_agent = getCodeExecutorAgent(docker)
 
     data_analyzer_agent = getDataAnalyzerAgent(model_client)
 

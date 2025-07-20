@@ -18,10 +18,12 @@ async def main():
 
     task = TextMessage(
         content='''Here is the code 
-
 ```python
-import matplotlib
 print("hello world")
+```
+        
+```python
+print("hello world 2")
 ```
     ''',
     source='user'
