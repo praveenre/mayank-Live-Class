@@ -19,7 +19,7 @@ async def main():
     task = TextMessage(
         content='''Here is the code 
 ```python
-print("Hello, World!")
+print("Hello, World, how are you ?!")
 ```
     ''',
     source='user'
@@ -33,6 +33,8 @@ print("Hello, World!")
     )
 
     print("The result is",result)
+
+    await docker.stop()
     
 
 if (__name__=='__main__'):
