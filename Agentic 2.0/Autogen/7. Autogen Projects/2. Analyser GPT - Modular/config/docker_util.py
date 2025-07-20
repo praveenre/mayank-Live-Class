@@ -18,5 +18,5 @@ async def start_docker_container(docker):
 
 async def stop_docker_container(docker):
     print("Stopping Docker Container")
-    await docker.start()
+    await docker.stop()
     print("Docker Container Stopped")
