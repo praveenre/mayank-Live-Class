@@ -14,6 +14,11 @@ st.title('Analyser GPT- Digital Data Analyzer')
 uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
 
 
+if 'messages' not in st.session_state:
+    st.session_state.messages = []
+if 'autogen_team_state' not in st.session_state:
+    st.session_state.autogen_team_state = None
+
 task = st.chat_input("Enter your task here...")
 
 
@@ -21,6 +26,9 @@ async def run_analyser_gpt(docker,openai_model_client,task):
     try:
         await start_docker_container(docker)
         team = getDataAnalyzerTeam(docker,openai_model_client)
+
+        if st.session_state.autogen_team_state is not None:
+            await team.load_state(st.session_state.autogen_team_state)
 
         async for message in team.run_stream(task=task):
             # print(message)
@@ -34,10 +42,15 @@ async def run_analyser_gpt(docker,openai_model_client,task):
                 elif message.source.startswith('Python_Code_Executor'):
                     with st.chat_message('Data Analyzer',avatar='👨‍💻'):
                         st.markdown(message.content)
+                st.session_state.messages.append(message.content)
                 # st.markdown(f"{message.content}")
             elif isinstance(message,TaskResult):
                 st.markdown(f'Stop Reason :{message.stop_reason}')
 
+                st.session_state.messages.append(message.stop_reason)
+
+        st.session_state.autogen_team_state = await team.save_state()
+            
         return None
     except Exception as e:
         st.error(f"Error: {e}")
@@ -45,6 +58,10 @@ async def run_analyser_gpt(docker,openai_model_client,task):
     finally:   
         await stop_docker_container(docker)
 
+
+if st.session_state.messages:
+    for msg in st.session_state.messages:
+        st.markdown(msg)
 
 if task:
    if uploaded_file is not None: 
