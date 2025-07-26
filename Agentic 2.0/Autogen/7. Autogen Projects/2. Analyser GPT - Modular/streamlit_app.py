@@ -62,7 +62,15 @@ if task:
 
         if error:
             st.error(f'An error occured: {error}')
+
+        # # see all the *.png in temp and show them on streamlit app
+        # png_files = [f for f in os.listdir('temp') if f.endswith('.png')]
+        # if png_files:
+        #     for png_file in png_files:
+        #         st.image(os.path.join('temp', png_file), caption=png_file)
         
+        if os.path.exists('temp/output.png'):
+            st.image('temp/output.png', caption='Output Image')
    
    else:
        st.warning('Please upload the file and provide the task')
