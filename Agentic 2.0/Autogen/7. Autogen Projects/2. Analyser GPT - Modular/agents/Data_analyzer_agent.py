@@ -3,7 +3,7 @@ from autogen_agentchat.agents import AssistantAgent
 DATA_ANALYZER_SYSTEM_MESSAGE='''
 
 You are a Data analyst agent with expertise in Data analyst and python and working with csv data.
-You will be getting a file and will be in the working dir and a question related to this data from the user.
+You will be getting a file (data.csv) and will be in the working dir and a question related to this data from the user.
 
 Your job is to write a python code to answer that question. 
 
