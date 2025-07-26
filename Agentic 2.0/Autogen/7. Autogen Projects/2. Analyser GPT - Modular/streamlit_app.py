@@ -14,10 +14,15 @@ st.title('Analyser GPT- Digital Data Analyzer')
 uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
 
 
+# streamlit's variable
+
+
 if 'messages' not in st.session_state:
     st.session_state.messages = []
 if 'autogen_team_state' not in st.session_state:
     st.session_state.autogen_team_state = None
+if('images_shown') not in st.session_state:
+    st.session_state.images_shown=[]
 
 task = st.chat_input("Enter your task here...")
 
@@ -87,7 +92,10 @@ if task:
         #         st.image(os.path.join('temp', png_file), caption=png_file)
         
         if os.path.exists('temp/output.png'):
-            st.image('temp/output.png', caption='Output Image')
+            # if('output.png' not in st.session_state.images_shown):
+            #     st.session_state.images_shown.append('output.png')
+            # if 'output.png' not in st.session_state.images_shown:
+            st.image('temp/output.png')
    
    else:
        st.warning('Please upload the file and provide the task')
