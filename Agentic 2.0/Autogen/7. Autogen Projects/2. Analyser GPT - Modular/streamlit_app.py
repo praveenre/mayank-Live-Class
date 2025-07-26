@@ -6,7 +6,7 @@ from teams.analyzer_gpt import getDataAnalyzerTeam
 from models.openai_model_client import get_model_client
 from config.docker_util import getDockerCommandLineExecutor,start_docker_container,stop_docker_container
 from autogen_agentchat.messages import TextMessage
-
+from autogen_agentchat.base import TaskResult
 
 
 st.title('Analyser GPT- Digital Data Analyzer') 
@@ -23,7 +23,20 @@ async def run_analyser_gpt(docker,openai_model_client,task):
         team = getDataAnalyzerTeam(docker,openai_model_client)
 
         async for message in team.run_stream(task=task):
-            st.markdown(f"**{message}")
+            # print(message)
+            if isinstance(message,TextMessage):
+                if message.source.startswith('user'):
+                    with st.chat_message('user',avatar='👤'):
+                        st.markdown(message.content)
+                elif message.source.startswith('Data_Analyzer_agent'):
+                    with st.chat_message('Data Analyzer',avatar='🤖'):
+                        st.markdown(message.content)
+                elif message.source.startswith('Python_Code_Executor'):
+                    with st.chat_message('Data Analyzer',avatar='👨‍💻'):
+                        st.markdown(message.content)
+                # st.markdown(f"{message.content}")
+            elif isinstance(message,TaskResult):
+                st.markdown(f'Stop Reason :{message.stop_reason}')
 
         return None
     except Exception as e:
@@ -48,7 +61,7 @@ if task:
         error = asyncio.run(run_analyser_gpt(docker,openai_model_client,task))
 
         if error:
-            st.error('An error occured:',{error})
+            st.error(f'An error occured: {error}')
         
    
    else:
