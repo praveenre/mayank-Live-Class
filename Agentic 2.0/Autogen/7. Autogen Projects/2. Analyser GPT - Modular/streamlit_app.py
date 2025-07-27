@@ -64,6 +64,9 @@ async def run_analyser_gpt(docker,openai_model_client,task):
         await stop_docker_container(docker)
 
 
+async def do_something_big():
+    await asyncio.sleep(1)  # Simulate a long-running task
+
 if st.session_state.messages:
     for msg in st.session_state.messages:
         st.markdown(msg)
