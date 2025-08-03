@@ -12,7 +12,7 @@ from autogen_agentchat.conditions import TextMentionTermination
 import os
 
 
-notion_secret = 'NOTION_TOKEN'
+notion_secret = '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'
 openai_api_key=os.getenv('OPENAI_API_KEY')
 
 
