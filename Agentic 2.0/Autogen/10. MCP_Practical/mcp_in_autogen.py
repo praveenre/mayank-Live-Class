@@ -5,7 +5,7 @@ import time
 from autogen_ext.tools.mcp import McpWorkbench,StdioServerParams
 import os
 
-async def main():
+async def main(main_task ):
 
     params = StdioServerParams(
     command = 'uvx',
@@ -32,10 +32,11 @@ async def main():
 
         task = 'What is the time right now in London ?'
 
-        async for message in agent.run_stream(task=task):
+        async for message in agent.run_stream(task=main_task):
             print("-"*100)
             print(message)
             print('-'*100)
 
 if(__name__=='__main__'):
-    asyncio.run(main())
+    main_task = 'Get time in London'
+    asyncio.run(main(main_task))
