@@ -11,3 +11,4 @@ langchain
 docker
 autogen-ext[docker]
 streamlit
+autogen-ext[mcp]
