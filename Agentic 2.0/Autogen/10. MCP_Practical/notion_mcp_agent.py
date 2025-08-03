@@ -1,3 +1,6 @@
+# https://developers.notion.com/docs/get-started-with-mcp
+
+# https://github.com/makenotion/notion-mcp-server?tab=readme-ov-file
 
 import asyncio
 from autogen_agentchat.agents import AssistantAgent
@@ -9,7 +12,7 @@ from autogen_agentchat.conditions import TextMentionTermination
 import os
 
 
-notion_secret = 'ntn_48477793941aPN4c2dzsmbj25I9zBmeGI3LpkFbLAXh6'
+notion_secret = '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'
 openai_api_key=os.getenv('OPENAI_API_KEY')
 
 
@@ -21,7 +24,7 @@ SYSTEM_MESSAGE = "You are a helpful assistant that can search and summarize cont
 
 async def config():
     params = StdioServerParams(
-        command='npx',
+        command="npx",
         args=['-y','mcp-remote','https://mcp.notion.com/mcp'],
         env={
             'NOTION_API_KEY':NOTION_API_KEY
@@ -51,3 +54,20 @@ async def config():
     )
 
     return team
+
+async def orchestrate(team,task):
+    async for msg in team.run_stream(task=task):
+        yield msg
+
+async def main():
+    team = await config()
+    task = 'Create a new page titled  "PageFromMCPNotion"'
+
+    async for msg in orchestrate(team,task):
+        print('-'*100)
+        print(msg)
+        print('-'*100)
+         
+    
+if __name__ =='__main__':
+    asyncio.run(main())
