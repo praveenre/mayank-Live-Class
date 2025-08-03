@@ -3,7 +3,7 @@ import os
 from pyngrok import ngrok
 from flask_cors import CORS
 
-NGROK_AUTH_TOKEN='YOUR-TOKEN'
+NGROK_AUTH_TOKEN='30k6PIYyYSdLcsasr6QFHiPhQsl_6AnDnpjAv8mp5bCaq5vAc'
 
 app = Flask(__name__)
 CORS(app)
