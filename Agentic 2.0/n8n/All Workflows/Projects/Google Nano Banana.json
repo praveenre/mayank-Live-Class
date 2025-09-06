@@ -9,7 +9,7 @@
           "parameters": [
             {
               "name": "x-goog-api-key",
-              "value": "AIzaSyDsj0io7wDNvCd1gHnS46SubBWn2XJs6MA"
+              "value": "your-own-key"
             }
           ]
         },
@@ -202,7 +202,7 @@
             {
               "id": "20bd214f-0ff1-4f4b-a268-8e805a8d111c",
               "name": "TOKEN",
-              "value": "=8214577987:AAGc--vPAhaM8Rou5Teu5ZtlIl8yvr6zpqg",
+              "value": "=your-key",
               "type": "string"
             }
           ]
