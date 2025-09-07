@@ -10,6 +10,7 @@ api_key = os.getenv('OPENAI_API_KEY')
 
 model_openAI = LiteLlm(model="openai/gpt-4o",
                        api_key=api_key,
+                       temperature=0.7,
                        max_tokens=10, # https://docs.litellm.ai/docs/completion/input
                        )
 

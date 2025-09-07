@@ -4,7 +4,7 @@ from google.adk.models.lite_llm import LiteLlm
 import os
 
 dotenv.load_dotenv()
-openrouter_model = LiteLlm(model='openrouter/deepseek/deepseek-chat-v3-0324:free',
+openrouter_model = LiteLlm(model='openrouter/deepseek/deepseek-chat-v3.1:free',
                            api_key=os.getenv('OPENROUTER_API_KEY'))
 
 root_agent = Agent(
