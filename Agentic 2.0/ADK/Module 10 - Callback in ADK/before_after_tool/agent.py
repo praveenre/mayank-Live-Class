@@ -57,8 +57,8 @@ def before_tool_callback(
     print(f"[Callback] Original args: {args}")
 
     # If someone asks about 'Merica, convert to United States
-    if tool_name == "get_capital_city" and args.get("country", "").lower() == "merica":
-        print("[Callback] Converting 'Merica to 'United States'")
+    if tool_name == "get_capital_city" and args.get("country", "").lower() == "america":
+        print("[Callback] Converting 'America to 'United States'")
         args["country"] = "United States"
         print(f"[Callback] Modified args: {args}")
         return None

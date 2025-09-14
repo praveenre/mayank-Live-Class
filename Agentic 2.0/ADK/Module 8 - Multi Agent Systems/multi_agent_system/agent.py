@@ -141,9 +141,7 @@ Example: "Carry-on limits vary by airline. Share the airline name and I can chec
 
 # ---------------------------- Root Manager --------------------------------
 
-# Keep the same root agent name and structure you provided.
-# Note: For consistency with your original, we expose the booking tool directly on root
-#       and include product_agent as a sub-agent. search_agent is wrapped using AgentTool.
+
 root_agent = Agent(
     name="customer_service_manager",
     model="gemini-2.0-flash",

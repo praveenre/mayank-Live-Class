@@ -18,7 +18,7 @@ load_dotenv()
 # -----------------------------
 # 🔧 Logging Setup
 # -----------------------------
-LOG_FILE_PATH = os.path.join(os.path.dirname(__file__), "mcp_calc_activity.log")
+LOG_FILE_PATH = os.path.join(os.path.dirname(__file__), "mcp_calc_logging.log")
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s",

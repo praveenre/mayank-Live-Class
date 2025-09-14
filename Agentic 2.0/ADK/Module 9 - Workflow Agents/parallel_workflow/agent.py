@@ -11,9 +11,9 @@ def make_translator_agent(lang_code, output_key):
     )
 
 # Market-focused (not translation): generate localized taglines per audience
-spanish = make_translator_agent('Spanish', 'es')
-french = make_translator_agent('French', 'fr')
-german = make_translator_agent('German', 'de')
+spanish = make_translator_agent('Spanish', 'spanish_key')
+french = make_translator_agent('French', 'French_key')
+german = make_translator_agent('German', 'German_key')
 
 parallel_translate = ParallelAgent(
     name='Parallel_Translator',
@@ -21,13 +21,15 @@ parallel_translate = ParallelAgent(
     sub_agents=[spanish, french, german],
 )
 
+# root_agent = parallel_translate
+
 merger_agent = LlmAgent(
     name='Merger_Agent',
     model=GEMINI,
     instruction='''Package the taglines neatly:
-     **Spanish** {es}
-     **French** {fr}
-     **German** {de}
+     **Spanish** {spanish_key}
+     **French** {French_key}
+     **German** {German_key}
 
      Return the response in the following JSON format:
      ```
