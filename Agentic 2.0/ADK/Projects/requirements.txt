@@ -1,0 +1,5 @@
+google-adk
+google-adk[database]
+litellm
+google-generativeai
+python-dotenv
