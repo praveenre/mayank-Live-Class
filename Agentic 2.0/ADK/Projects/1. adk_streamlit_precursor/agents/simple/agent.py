@@ -2,6 +2,7 @@ import os
 from google.adk.agents.llm_agent import Agent
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, StdioServerParameters
 
+
 # This agent can answer general questions and will use Tavily MCP to search when needed.
 # It is intentionally simple for teaching: one agent, one toolset.
 
